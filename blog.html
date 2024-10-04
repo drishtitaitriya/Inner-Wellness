@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Blog</title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <header>
+            <nav>
+                <a href="index.html" class="backBtn"> Back</a> 
+            </nav>
+            
+        </header>
+        
+           
+        
+    </header>
+    <div class="container">
+        <h1>Share Your Thoughts</h1>
+        <p class="subtitle">A safe space to share your mental health journey</p>
+        
+        <!-- Form to submit a blog -->
+        <form id="blogForm">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="blogContent">Your Blog:</label><br>
+            <textarea id="blogContent" name="blogContent" rows="5" cols="33" placeholder="Write something uplifting or reflective..." required></textarea><br><br>
+            
+            <button type="submit" class="submit-btn">Submit Blog</button>
+        </form>
+        
+        <h2>Recent Blogs</h2>
+        <div id="blogList">
+            <!-- Submitted blogs will be shown here -->
+        </div>
+    </div>
+    <footer class="background">
+        <p class="text-footer">
+             Copyright &copy; Ternary Titans- All rights reserved ||
+             Credit for information mentioned  <a href="https://www.medicalnewstoday.com/articles/154543#definition" style="color: white; " target="_blank">&nbsp;&nbsp;  Medicalnewstoday </a> </p>
+        </p>
+    </footer>
+    <script href="script.js"></script>
+    <script src="blog.js"></script>
+</body>
+</html>
+
+
+
+

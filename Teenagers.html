@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Survey</title>
+    <link rel="stylesheet" href="surveystyles.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h4 {
+            text-align: center;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+
+</style>
+<body>
+    
+       <nav class="navbar background">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+            </li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <!-- Updated Test menu with dropdown -->
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Test</a>
+                <div class="dropdown-content">
+                    <a href="Teenagers.html">Teenagers</a>
+                    <a href="adult.html">Adults</a>
+                    <a href="senior.html">Senior Citizens</a>
+                </div>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="mailto: abc@gmail.com">Mail us</a></li>
+            <li><a href="https://www.chatbase.co/chatbot-iframe/_RUopbeMwL-iuZXejC-tN" target="_blank">Chatbot</a></li>
+        </ul>
+        <ul>
+            <img class="logo" src="images/logo.jpg" alt="logo">
+            <li class="hideOnMobile"><a href="index.html">Home</a></li>
+            <li class="hideOnMobile"><a href="#About">About</a></li>
+            <!-- Updated Test menu with dropdown for larger screens -->
+            <li class="dropdown hideOnMobile">
+                <a href="javascript:void(0)" class="dropbtn">Test</a>
+                <div class="dropdown-content">
+                    <a href="Teenagers.html">Teenagers</a>
+                    <a href="adult.html">Adults</a>
+                    <a href="senior.html">Senior Citizens</a>
+                </div>
+            </li>
+            <li class="hideOnMobile"><a href="blog.html">Blog</a></li>
+            <li><a href="mailto: abc@gmail.com">Mail us</a></li>
+            <li><a href="https://www.chatbase.co/chatbot-iframe/_RUopbeMwL-iuZXejC-tN" target="_blank">Chatbot</a></li>
+            <li class="menu-button" onclick=showSidebar()>
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Mental Health Survey</h1>
+        <h4> Welcome to our Mental Health Assessment Survey. <br>
+            Interpretations of scores:
+            <br>
+            <i>Score Below 30</i>: Your mental health is stable. Keep up the good work!
+              <br>
+            <i>Score Between 30 and 44</i>: Your mental health is concerning. Consider remedies and seek professional help if needed.
+            <br>
+            <i>Score 45 and Above</i>: Your mental health is unstable. It's essential to seek professional help promptly.
+            <br>
+            Thank you for your participation and commitment to your well-being. Let's begin the survey. </h4><br>
+            <div id="adultSurveyForm">
+            <h4>Teenager's Mental Health Survey</h4>
+            <form id="teenSurveyForm">
+                <div class="question">
+                    <label>1. How often do you feel stressed about school or exams?</label>
+                    <select id="q1" required>
+                        <option value="1">Never</option>
+                        <option value="2">Rarely</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Often</option>
+                        <option value="5">Always</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>2. How frequently do you experience social anxiety in group settings?</label>
+                    <select id="q2" required>
+                        <option value="1">Never</option>
+                        <option value="2">Rarely</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Often</option>
+                        <option value="5">Always</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>3. How satisfied are you with your body image and appearance?</label>
+                    <select id="q3" required>
+                        <option value="1">Very satisfied</option>
+                        <option value="2">Satisfied</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Dissatisfied</option>
+                        <option value="5">Very dissatisfied</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>4. How often do you feel pressure to meet expectations from family or friends?</label>
+                    <select id="q4" required>
+                        <option value="1">Never</option>
+                        <option value="2">Rarely</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Often</option>
+                        <option value="5">Always</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>5. Do you find it hard to talk about your emotions?</label>
+                    <select id="q5" required>
+                        <option value="1">Never</option>
+                        <option value="2">Rarely</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Often</option>
+                        <option value="5">Always</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>6. How often do you feel lonely even when you're surrounded by friends?</label>
+                    <select id="q6" required>
+                        <option value="1">Never</option>
+                        <option value="2">Rarely</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Often</option>
+                        <option value="5">Always</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>7. How often do you spend time on hobbies or activities that make you happy?</label>
+                    <select id="q7" required>
+                        <option value="1">Daily</option>
+                        <option value="2">Several times a week</option>
+                        <option value="3">Occasionally</option>
+                        <option value="4">Rarely</option>
+                        <option value="5">Never</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>8. How often do you feel stressed by your online or social media presence?</label>
+                    <select id="q8" required>
+                        <option value="1">Never</option>
+                        <option value="2">Rarely</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Often</option>
+                        <option value="5">Always</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>9. How comfortable are you with sharing your struggles with mental health?</label>
+                    <select id="q9" required>
+                        <option value="1">Very comfortable</option>
+                        <option value="2">Comfortable</option>
+                        <option value="3">Neutral</option>
+                        <option value="4">Uncomfortable</option>
+                        <option value="5">Very uncomfortable</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>10. How often do you feel motivated to complete schoolwork or extracurricular activities?</label>
+                    <select id="q10" required>
+                        <option value="1">Always</option>
+                        <option value="2">Often</option>
+                        <option value="3">Sometimes</option>
+                        <option value="4">Rarely</option>
+                        <option value="5">Never</option>
+                    </select>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+            
+        <div id="teenResult"></div>
+    </div>
+    <footer class="background">
+        <p class="text-footer">
+             Copyright &copy; Ternary Titans- All rights reserved ||
+             Credit for information mentioned  <a href="https://www.medicalnewstoday.com/articles/154543#definition" style="color: white; " target="_blank">&nbsp;&nbsp;  Medicalnewstoday </a> </p>
+        </p>
+    </footer>
+    <script href="script.js"></script>
+    <script >
+        document.getElementById('teenSurveyForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevents the form from submitting the traditional way (refreshing the page)
+    
+    // Collect all the selected values from the dropdowns
+    const formElements = document.querySelectorAll('#teenSurveyForm select');
+    let score = 0;
+
+    // Loop through each select element and sum their values
+    formElements.forEach(function (element) {
+        score += parseInt(element.value);
+    });
+
+    // Display the result in the 'teenResult' div based on the score
+    const resultDiv = document.getElementById('teenResult');
+    let resultMessage = '';
+
+    if (score < 30) {
+        resultMessage = '<h3>Your mental health is stable. Keep up the good work!</h3>';
+    } else if (score >= 30 && score <= 44) {
+        resultMessage = '<h3>Your mental health is concerning. Consider remedies and seek professional help if needed.</h3>';
+    } else {
+        resultMessage = '<h3>Your mental health is unstable. It\'s essential to seek professional help promptly.</h3>';
+    }
+
+    // Display the result to the user
+    resultDiv.innerHTML = `
+        <h2>Survey Completed</h2>
+        <p>Your total score is: <strong>${score}</strong></p>
+        ${resultMessage}
+    `;
+    
+    // Optionally, you could clear the form after submission
+    document.getElementById('teenSurveyForm').reset();
+});
+
+    </script>
+</body>
+</html>
