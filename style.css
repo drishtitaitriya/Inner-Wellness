@@ -799,8 +799,8 @@ body > section:nth-child(4) > div.thumbnail > img{
     }
 
     .text-s {
-        font-size: 13px;
-        text-align: initial;
+        font-size: 12px;
+        text-align: center;
     }
    
     #feature {
