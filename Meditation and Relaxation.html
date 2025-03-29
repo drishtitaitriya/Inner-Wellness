@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation & Relaxation</title>
+    <link rel="stylesheet" href="MR.css">
+</head>
+<body>
+ 
+    <div class="container">
+        <h1>Relax & Breathe</h1>
+        <p>Follow the animation to inhale and exhale.</p>
+
+        <button id="toggleDarkMode">Dark Mode</button>
+
+        <div class="breathing-box">
+            <div class="circle"></div>
+        </div>
+
+        <label for="timer">Set Meditation Timer:</label>
+        <select id="timer">
+            <option value="1">1 Minute</option>
+            <option value="2">2 Minutes</option>
+            <option value="3">3 Minutes</option>
+            <option value="5">5 Minutes</option>
+        </select>
+
+        <label for="sound">Choose a Relaxing Sound:</label>
+        <select id="sound">
+            <option value="rain">Rain 🌧️</option>
+            <option value="ocean">Ocean Waves 🌊</option>
+        </select>
+
+        <button id="startMeditation">Start Meditation</button>
+        <button id="stopMeditation">Stop</button>
+
+        <p id="timeLeft"></p>
+
+        <button id="backToHome">Back to Home</button>
+    </div>
+  
+    <script src="MR.js"></script>
+   
+</body>
+</html>
