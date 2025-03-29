@@ -1,63 +1,3 @@
-// Get the form and the blog list container
-const blogForm = document.getElementById('blogForm');
-const blogList = document.getElementById('blogList');
-
-// Function to calculate the time difference
-function timeSince(date) {
-    const now = new Date();
-    const seconds = Math.floor((now - date) / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-
-    if (days > 0) {
-        return `${days} day${days > 1 ? 's' : ''} ago`;
-    } else if (hours > 0) {
-        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-    } else if (minutes > 0) {
-        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-    } else {
-        return 'just now';
-    }
-}
-
-// Event listener for form submission
-blogForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form from submitting the traditional way
-
-    // Get the user input values
-    const username = document.getElementById('username').value;
-    const blogContent = document.getElementById('blogContent').value;
-
-    // Create new blog post element
-    const blogPost = document.createElement('div');
-    blogPost.classList.add('blogPost');
-
-    // Get the current date and time
-    const postTime = new Date();
-
-    // Add content to the blog post
-    blogPost.innerHTML = `
-        <h3>${username}</h3>
-        <p>${blogContent}</p>
-        <p class="timestamp">${timeSince(postTime)}</p>
-    `;
-
-    // Add the new blog post to the top of the blog list
-    blogList.insertBefore(blogPost, blogList.firstChild);
-
-    // Clear the form after submission
-    blogForm.reset();
-
-    // Update the time every minute
-    setInterval(function() {
-        const timestampElement = blogPost.querySelector('.timestamp');
-        timestampElement.textContent = timeSince(postTime);
-    }, 60000); // Update every 60 seconds
-});
-
-
-
 // Get all navbar links
 const navLinks = document.querySelectorAll("#navbar li a");
 
@@ -90,7 +30,104 @@ if(close){
         nav.classList.remove('active');
     })
 }
+  
+ 
+const blogForm = document.getElementById('blogForm');
+const blogList = document.getElementById('blogList');
 
+// Load blogs from localStorage
+document.addEventListener("DOMContentLoaded", loadBlogs);
+
+blogForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const blogContent = document.getElementById('blogContent').value;
+    const blogImage = document.getElementById('blogImage').files[0];
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const imageData = event.target.result;
+        const blogPost = { username, blogContent, imageData, likes: 0, timestamp: new Date().toISOString() };
+        
+        saveBlog(blogPost);
+        addBlogToDOM(blogPost);
+        blogForm.reset();
+    };
+
+    if (blogImage) {
+        reader.readAsDataURL(blogImage);
+    } else {
+        const blogPost = { username, blogContent, imageData: "", likes: 0, timestamp: new Date().toISOString() };
+        saveBlog(blogPost);
+        addBlogToDOM(blogPost);
+        blogForm.reset();
+    }
+});
+
+function addBlogToDOM(blogPost) {
+    const blogDiv = document.createElement('div');
+    blogDiv.classList.add('blogPost');
+    
+    blogDiv.innerHTML = `
+        <h3>${blogPost.username}</h3>
+        ${blogPost.imageData ? `<img src="${blogPost.imageData}" alt="Blog Image">` : ""}
+        <p>${blogPost.blogContent}</p>
+        <p class="timestamp">${new Date(blogPost.timestamp).toLocaleString()}</p>
+        <button onclick="editBlog(this)">Edit</button>
+        <button onclick="deleteBlog(this)">Delete</button>
+        <button onclick="likeBlog(this)"><i class="bi bi-hand-thumbs-up"></i> <span>${blogPost.likes}</span></button>
+    `;
+
+    blogList.prepend(blogDiv);
+}
+
+function saveBlog(blogPost) {
+    let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    blogs.push(blogPost);
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+}
+
+function loadBlogs() {
+    let blogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    blogs.forEach(addBlogToDOM);
+}
+
+function editBlog(button) {
+    const blogDiv = button.parentElement;
+    const content = blogDiv.querySelector("p").innerText;
+    const newText = prompt("Edit your blog:", content);
+    
+    if (newText) {
+        blogDiv.querySelector("p").innerText = newText;
+        updateLocalStorage();
+    }
+}
+
+function deleteBlog(button) {
+    button.parentElement.remove();
+    updateLocalStorage();
+}
+
+function likeBlog(button) {
+    let likes = button.querySelector("span");
+    likes.innerText = parseInt(likes.innerText) + 1;
+    updateLocalStorage();
+}
+
+function updateLocalStorage() {
+    let blogs = [];
+    document.querySelectorAll(".blogPost").forEach(blog => {
+        blogs.push({
+            username: blog.querySelector("h3").innerText,
+            blogContent: blog.querySelector("p").innerText,
+            imageData: blog.querySelector("img") ? blog.querySelector("img").src : "",
+            likes: parseInt(blog.querySelector("span").innerText),
+            timestamp: blog.querySelector(".timestamp").innerText
+        });
+    });
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+}
 
   
   
