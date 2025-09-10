@@ -255,7 +255,27 @@
              Credit for information mentioned  <a href="https://www.medicalnewstoday.com/articles/154543#definition" style="color: white; " target="_blank">&nbsp;&nbsp;  Medicalnewstoday </a> </p>
         </p>
     </footer>
-
+     <!-- chatbot -->
+    <button class="chatbot-toggler">
+  <span class="material-symbols-outlined">mode_comment</span>
+  <span class="material-symbols-outlined">close</span>
+</button>
+<div class="chatbot">
+  <header>
+    <h2>Chatbot</h2>
+    <span class="close-btn material-symbols-outlined">close</span>
+  </header>
+  <ul class="chatbox">
+    <li class="chat incoming">
+      <span class="material-symbols-outlined">smart_toy</span>
+      <p>Hi there 👋 <br> How can I help you today?</p>
+    </li>
+  </ul>
+  <div class="chat-input">
+    <textarea placeholder="Enter a message..." required></textarea>
+    <span id="send-btn" class="material-symbols-outlined">send</span>
+  </div>
+</div>
     <script>
     function submitForm(event) {
     event.preventDefault();
@@ -306,6 +326,7 @@ if(close){
  integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
+
 
 
 
